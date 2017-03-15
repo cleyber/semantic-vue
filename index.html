@@ -19,24 +19,27 @@
   </header>
   <main>
       <div class="ui grid" id="grid-1">
-          <div class=" three wide column"></div>
+         <div class=" three wide column"></div>
 
-          <div class="ten wide column">
-            <form v-on:submit.prevent="agregarTarea">
-                <div class="ui input">
-                     <input type="text" name ="nuevaTarea" placeholder="Nueva Tarea" v-model.trim="nuevaTarea">
-                     <button type="submit" class="ui button primary">
-                         Agregar Nueva Tarea
-                     </button>
-                 </div>
+         <div class="ten wide column">
+             <!-- <div class="ui raised segment"> -->
+            <form v-on:submit.prevent="agregarTarea" class="ui form">
+               <div class="ui  action input">
+                  <input type="text" name ="nuevaTarea" placeholder="Nueva Tarea" v-model.trim="nuevaTarea">
+                  <button type="submit" class="ui button primary">
+                     Agregar Nueva Tarea
+                  </button>
+               </div>
             </form>
 
-            <div v-if="formEditar">
-               <form v-on:submit.prevent="editarTarea">
-                  <div class="ui input">
+             <!-- </div> -->
+
+            <div v-if="formEditar" id="formEditar">
+               <form v-on:submit.prevent="editarTarea" class="ui form">
+                  <div class="ui action input">
                        <input type="text" name ="formEditar" v-model.trim="tareaEditada" >
                        <button type="submit" class="ui button primary">
-                           Editar tarea
+                           --Editar tarea--
                        </button>
                    </div>
                </form>
@@ -50,7 +53,7 @@
                      </tr>
                       <tbody>
                           <tr v-for="tarea in tareas">
-                                <td><div class="ui checkbok"><input type="checkbox" @click="completarTarea(tarea)"></div></td>
+                              <td><div class="ui checkbok"><input type="checkbox" @click="completarTarea(tarea)"></div></td>
                               <td :class="{completado: tarea.completado}">{{tarea.nombre}}</td>
                               <td><button @click="encontrarTarea(tarea)" class="ui icon primary button"><i class="edit icon"></i></button>
                               <button class="ui icon  button" @click ="eliminarTarea(tarea)"><i  class="trash outline icon"></i></button></td>

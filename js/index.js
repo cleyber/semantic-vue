@@ -5,7 +5,7 @@ Messenger.options = {
 new Vue({
    el: 'main',
    data: {
-      formEditar: false,
+      formEditar: true,
       mensaje: '',
       nuevaTarea: '',
       id: 1,
