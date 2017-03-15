@@ -3,67 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>html</title>
-    <link rel="stylesheet" href="css/semantic.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="build/css/messenger.css">
-    <link rel="stylesheet" href="build/css/messenger-theme-air.css">
-    <link rel="icon" href="vue.ico">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.css" />
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/messenger/1.5.0/css/messenger.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/messenger/1.5.0/css/messenger-theme-air.css" />
+   <link rel="icon" href="vue.ico">
 </head>
 <body>
   <header>
        <div class="ui container center aligned">
             <h1 id="titulo-header">Ejemplo de Semantic UI con Vue js</h1>
-            <div class="ui orizontal divider header"></div>   
+            <div class="ui orizontal divider header"></div>
        </div>
   </header>
-  
-  <main>     
+
+  <main>
       <div class="ui grid" id="grid-1">
           <div class=" three wide column"></div>
-          
-          <div class="ten wide column">
-            <form id="form-1">
-                <div class="ui input">
-                     <input type="text" name ="nuevaTarea" placeholder="Nueva Tarea" v-model="nuevaTarea" v-on:keyup.enter="agregarTarea()">
 
-                     <div class="ui button submit primary" @click="agregarTarea()">
+          <div class="ten wide column">
+            <form v-on:submit.prevent="agregarTarea">
+                <div class="ui input">
+                     <input type="text" name ="nuevaTarea" placeholder="Nueva Tarea" v-model.trim="nuevaTarea">
+                     <button type="submit" class="ui button primary">
                          Agregar Nueva Tarea
-                     </div>
+                     </button>
                  </div>
             </form>
-             
+
               <table class="ui celled striped table">
                   <thead>
                       <tr>
-                          <th colspan="4">Tareas</th>
+                          <th colspan="3">Tareas</th>
                       </tr>
                       <tbody>
                           <tr v-for="tarea in tareas">
                                 <td><div class="ui checkbok"><input type="checkbox" @click="completarTarea(tarea)"></div></td>
                               <td>{{tarea.nombre}}</td>
-                              <td><div class="ui button primary"><i class="fa fa-pencil-square-o"></i></div>
-                              <div class="ui button red"><i @click ="eliminarTarea(tarea)" class="fa fa-trash"></i></div></td>
+                              <td><div class="ui icon primary button"><i class="edit icon"></i></div>
+                              <div class="ui icon red button" @click ="eliminarTarea(tarea)"><i  class="trash outline icon"></i></div></td>
                           </tr>
                       </tbody>
                   </thead>
               </table>
           </div>
-          
+
           <div class="three column"></div>
       </div>
-     
+      <pre>{{$data}}</pre>
   </main>
-    
-    <script src="https://cdn.jsdelivr.net/vue/2.1.10/vue.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.js"
-      integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-      crossorigin="anonymous">
-    </script>
-    <script src="js/semantic.js"></script>
-    <script src="js/index.js"></script>
-    <script src="build/js/messenger.js"></script>
-    <script src="build/js/messenger-theme-future.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
+   <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/messenger/1.5.0/js/messenger.min.js"></script>
+   <script src="js/index.js"></script>
 </body>
 </html>
