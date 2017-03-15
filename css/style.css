@@ -9,3 +9,7 @@ main {
 #grid-1{
     margin-top: 5%;
 }
+
+.completado {
+   text-decoration: line-through;
+}
