@@ -50,16 +50,23 @@ new Vue({
             this.mostrarForm();
       },
       editarTarea(){
-         for(var i = 0; i < this.tareas.length; i++){
-            if(this.tareas[i].id === this.idTarea){
-               if(this.tareas[i].nombre = this.tareaEditada){
-                  Messenger().post({
-                     message: 'Se ha modificado la tarea',
-                     type: 'success',
-                     showCloseButton: true
-                  });
+         if (this.tareaEditada) {
+            for(var i = 0; i < this.tareas.length; i++){
+               if(this.tareas[i].id === this.idTarea){
+                  if(this.tareas[i].nombre = this.tareaEditada){
+                     Messenger().post({
+                        message: 'Se ha modificado la tarea',
+                        type: 'success',
+                        showCloseButton: true
+                     });
+                  }
                }
             }
+         }else{
+            Messenger().error({
+               message: 'Debe ingresar una tarea',
+               showCloseButton: true
+            });
          }
       },
       removerform(){
