@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/messenger/1.5.0/css/messenger.min.css" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/messenger/1.5.0/css/messenger-theme-air.css" />
-   <link rel="icon" href="vue.ico">
+   <link rel="icon" href="html5.ico">
 </head>
 <body>
   <header>
@@ -22,9 +22,9 @@
          <div class=" three wide column"></div>
 
          <div class="ten wide column">
-             <!-- <div class="ui raised segment"> -->
+             <div class="ui piled segment">
             <form v-on:submit.prevent="agregarTarea" class="ui form">
-               <div class="ui  action input">
+               <div class="ui  fluid action input">
                   <input type="text" name ="nuevaTarea" placeholder="Nueva Tarea" v-model.trim="nuevaTarea">
                   <button type="submit" class="ui button primary">
                      Agregar Nueva Tarea
@@ -32,18 +32,19 @@
                </div>
             </form>
 
-             <!-- </div> -->
+             </div>
 
             <div v-if="formEditar" id="formEditar">
-               <form v-on:submit.prevent="editarTarea" class="ui form">
-                  <div class="ui action input">
-                       <input type="text" name ="formEditar" v-model.trim="tareaEditada" >
-                       <button type="submit" class="ui button primary">
-                           --Editar tarea--
-                       </button>
-                   </div>
-               </form>
-               <button class="ui icon button" @click="removerform"><i class=" remove icon"></i></button>
+               <div class="ui piled segment">
+                  <div class="ui form">
+                     <div class="ui fluid action input">
+                        <input type="text" name ="formEditar" autocomplete="off" v-model.trim="tareaEditada" @keyup.enter="editarTarea">
+                        <button class="ui button primary" @click="editarTarea">Editar tarea</button>
+                        <button class="ui icon button" @click="removerform"><i class=" remove icon"></i></button>
+                     </div>
+                  </div>
+
+               </div>
             </div>
 
               <table class="ui celled striped table">

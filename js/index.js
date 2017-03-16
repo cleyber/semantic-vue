@@ -5,7 +5,7 @@ Messenger.options = {
 new Vue({
    el: 'main',
    data: {
-      formEditar: true,
+      formEditar: false,
       mensaje: '',
       nuevaTarea: '',
       id: 1,
@@ -15,8 +15,9 @@ new Vue({
    },
    created() {
       this.tareas.push({id: this.id++, nombre: 'Realizar todo lo visto con Vue', completado: false});
-      this.tareas.push({id: this.id++, nombre: 'Hacer todoList', completado: false});
+      this.tareas.push({id: this.id++, nombre: 'Hacer TodoList', completado: false});
       this.tareas.push({id: this.id++, nombre: 'Mejorar la app', completado: false});
+      this.tareas.push({id: this.id++, nombre: 'Hacer TodoList con WebPack', completado: false});
    },
     methods:{
       mostrarForm(){
